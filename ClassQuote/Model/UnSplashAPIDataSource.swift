@@ -8,6 +8,7 @@
 import Foundation
 
 // Erreurs courrantes à gérer
+// DRY : Don't Repeat Yourself
 enum UnSplashAPIDataSourceError: Error {
     case invalidURL
     case invalidResponse

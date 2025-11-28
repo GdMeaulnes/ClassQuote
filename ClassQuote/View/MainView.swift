@@ -21,6 +21,26 @@ struct MainView: View {
             } else {
                 Color.gray
             }
+            
+            /*
+            AsyncImage(url: URL(string: "https://example.com/icon.png")) { image in
+                image.resizable()
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(width: 50, height: 50)
+            
+            AsyncImage(url: URL(string: "https://example.com/icon.png")) { phase in
+                if let image = phase.image {
+                    image // Displays the loaded image.
+                } else if phase.error != nil {
+                    Color.red // Indicates an error.
+                } else {
+                    Color.blue // Acts as a placeholder.
+                }
+            }
+             */
+
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)

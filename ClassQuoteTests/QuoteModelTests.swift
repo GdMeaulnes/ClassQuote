@@ -29,7 +29,7 @@ struct QuoteModelTests {
         #expect(decoded.quoteText == "Test quote")
         #expect(decoded.quoteAuthor == "Test Author")
         #expect(decoded.senderName == "")
-        #expect(decoded.quoteLink == "http://example.com")
+        #expect(decoded.quoteLink == URL(string: "http://example.com"))
     }
 }
 

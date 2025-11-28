@@ -7,13 +7,54 @@
 
 import Foundation
 
+// https://www.swiftbysundell.com/articles/customizing-codable-types-in-swift/
+// https://nilcoalescing.com/blog/CodableConformanceForSwiftEnums/
+
+// 1. Récupération du JSON
+// "senderLink": "",
+
+// 2.
+
 // Structure basée sur la doc de l'API Forismatic
 struct Quote: Codable {
     let quoteText: String
     let quoteAuthor: String
     let senderName: String
-    let senderLink: URL
+    let senderLink: URL?
     let quoteLink: URL
+    
+    init(
+        quoteText: String,
+        quoteAuthor: String,
+        senderName: String,
+        senderLink: URL,
+        quoteLink: URL
+    ) {
+        self.quoteText = quoteText
+        self.quoteAuthor = quoteAuthor
+        self.senderName = senderName
+        self.senderLink = senderLink
+        self.quoteLink = quoteLink
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawData = try container.decode([String: String].self)
+        
+        guard let quoteText = rawData["quoteText"],
+              let quoteAuthor = rawData["quoteAuthor"],
+              let senderName = rawData["senderName"],
+              let senderLinkRawData = rawData["senderLink"],
+              let quoteLinkRawData = rawData["quoteLink"] else {
+            fatalError("")
+        }
+        
+        self.quoteText = quoteText
+        self.quoteAuthor = quoteAuthor
+        self.senderName = senderName
+        self.senderLink = URL(string: senderLinkRawData)
+        self.quoteLink = URL(string: quoteLinkRawData)!
+    }
 }
 
 // Structure basée sur la doc de UnSplash
