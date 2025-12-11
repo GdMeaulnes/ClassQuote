@@ -27,7 +27,7 @@
 		795C58332ED44A5C00FB9261 /* ClassQuote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassQuote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		795C58402ED44A5E00FB9261 /* ClassQuoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassQuoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		795C584A2ED44A5E00FB9261 /* ClassQuoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassQuoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7973BB6C2ED9B21D00BBE418 /* ClassQuote.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = ClassQuote.xctestplan; sourceTree = "<group>"; };
+		7973BB6C2ED9B21D00BBE418 /* ClassQuote.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ClassQuote.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */

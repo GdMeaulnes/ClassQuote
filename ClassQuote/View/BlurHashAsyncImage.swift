@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BlurHashAsyncImage: View {
-    let picture : UnsplashPhoto
+    let picture : UnSplashPhoto
 
     @State private var loadedImage: UIImage? = nil
 
@@ -38,7 +38,7 @@ struct BlurHashAsyncImage: View {
         // Si c'est déjà chargé, on ne fait rien
         if loadedImage != nil { return }
 
-        URLSession.shared.dataTask(with: picture.urlsFull) { data, _, _ in
+        URLSession.shared.dataTask(with: picture.urlsFull!) { data, _, _ in
             guard let data = data, let img = UIImage(data: data) else { return }
             
             // On lance dans la bonne queue le chargement (pause de 4 secondes histoire de voir...)

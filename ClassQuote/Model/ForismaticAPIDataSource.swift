@@ -7,14 +7,6 @@
 
 import Foundation
 
-// Erreurs courrantes à gérer
-enum ForismaticAPIDataSourceError: Error {
-    case invalidURL
-    case invalidResponse
-    case noData
-    case decodingError
-}
-
 // Interface avec l'API de Forismatic
 class ForismaticAPIDataSource {
 
@@ -27,19 +19,20 @@ class ForismaticAPIDataSource {
         self.session = session
     }
 
+    // Récupération de la pensée du jour
     func getQuote() async throws -> Quote {
         guard let (data, response) = try? await session.data(from: baseURL) else {
-            throw ForismaticAPIDataSourceError.noData
+            throw APIDataSourceError.noData
         }
 
         guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-            throw ForismaticAPIDataSourceError.invalidResponse
+            throw APIDataSourceError.invalidResponse
         }
 
         do {
             return try JSONDecoder().decode(Quote.self, from: data)
         } catch {
-            throw ForismaticAPIDataSourceError.decodingError
+            throw APIDataSourceError.decodingError
         }
     }
 }
